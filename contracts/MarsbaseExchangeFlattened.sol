@@ -6,7 +6,7 @@
 ////// SPDX-License-Identifier-FLATTEN-SUPPRESS-WARNING: MIT
 // OpenZeppelin Contracts (last updated v4.7.0) (utils/Address.sol)
 
-pragma solidity 0.8.1;
+pragma solidity ^0.8.1;
 
 /**
  * @dev Collection of functions related to the address type
