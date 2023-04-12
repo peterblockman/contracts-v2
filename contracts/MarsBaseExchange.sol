@@ -70,6 +70,7 @@ contract MarsBaseExchange //is IMarsbaseExchange
 	{
 		return minimumFee;
 	}
+	// disrupt the order of the offerId
 	function setNextOfferId(uint256 _nextOfferId) onlyOwner public
 	{
 		nextOfferId = _nextOfferId;
@@ -124,7 +125,7 @@ contract MarsBaseExchange //is IMarsbaseExchange
 		uint256 offerAmountBob
 	) public pure returns (uint256)
 	{
-		uint16 amountAliceLog2 = log2(amountAlice);
+		uint16 amountAliceLog2 = log2(amountAlice); // Here change to uint256
 		uint16 offerAmountBobLog2 = log2(offerAmountBob);
 
 		if ((amountAliceLog2 + offerAmountBobLog2) < 240) // TODO: check bounds for 255 instead of 240
@@ -239,6 +240,7 @@ contract MarsBaseExchange //is IMarsbaseExchange
 		if (tokenAlice == address(0))
 			require(amountAlice == msg.value, "402-E");
 		else
+			// approve here 
 			IERC20(tokenAlice).safeTransferFrom(msg.sender, address(this), amountAlice);
 
 		// create offer object

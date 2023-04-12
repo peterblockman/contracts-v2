@@ -59,6 +59,7 @@ contract MarsbaseBestBid is IMarsbaseBestBid
 	function getActiveOffers() external view returns (BBOffer[] memory)
 	{
 		BBOffer[] memory activeOffers = new BBOffer[](activeOffersCount);
+		// why dont use offerId here
 		uint256 i = 0;
 		for (uint256 offerId = 0; offerId < nextOfferId; offerId++)
 		{
